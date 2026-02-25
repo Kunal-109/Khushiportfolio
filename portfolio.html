@@ -192,10 +192,6 @@
             const images = [];
 
             for (let imageNumber = 1; imageNumber <= maxCount; imageNumber++) {
-                if (missingSet.has(imageNumber)) {
-                    continue;
-                }
-
                 images.push({
                     imageNumber,
                     imagePath: `${baseImagePath}${folderName}/Post (${imageNumber})${ext}`
