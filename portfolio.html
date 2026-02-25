@@ -162,7 +162,7 @@
             { name: 'Logo and Bento Box', count: 10, ext: '.jpg' },
             { name: 'Magzine Cover', count: 6, ext: '.jpg' },
             { name: 'Poster', count: 4, ext: '.jpg' },
-            { name: 'Social Media Post', count: 47, ext: '.jpg', missingIndices: [44] }
+            { name: 'Social Media Post', count: 46, ext: '.jpg',  }
         ];
         let currentCategory = 'all';
         let currentImageIndex = 0;
@@ -188,9 +188,8 @@
             return portfolioFolders.filter(folder => !excludedFolders.has(folder.name));
         }
 
-        function collectFolderImages(folderName, maxCount, ext, missingIndices = []) {
+        function collectFolderImages(folderName, maxCount, ext, ]) {
             const images = [];
-            const missingSet = new Set(missingIndices);
 
             for (let imageNumber = 1; imageNumber <= maxCount; imageNumber++) {
                 if (missingSet.has(imageNumber)) {
@@ -211,7 +210,7 @@
             const categories = [];
 
             for (const folder of folders) {
-                const images = collectFolderImages(folder.name, folder.count, folder.ext, folder.missingIndices || []);
+                const images = collectFolderImages(folder.name, folder.count, folder.ext || []);
                 if (images.length === 0) {
                     continue;
                 }
